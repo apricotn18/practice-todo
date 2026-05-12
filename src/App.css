@@ -1,0 +1,345 @@
+.app {
+  max-width: 480px;
+  margin: 0 auto;
+  min-height: 100vh;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+/* Header */
+.header {
+  background: #e91e8c;
+  color: #fff;
+  padding: 0 12px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.header-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #fff;
+}
+
+.header-actions {
+  display: flex;
+  gap: 4px;
+}
+
+.icon-btn {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 18px;
+  cursor: pointer;
+  padding: 6px 8px;
+  border-radius: 4px;
+  line-height: 1;
+}
+
+.icon-btn:hover {
+  background: rgba(255,255,255,0.15);
+}
+
+.menu-btn {
+  font-size: 20px;
+}
+
+/* List */
+.list-container {
+  flex: 1;
+  padding-bottom: 100px;
+}
+
+/* Section row */
+.section-row {
+  display: flex;
+  align-items: center;
+  padding: 10px 16px;
+  background: #fafafa;
+  border-bottom: 1px solid #eee;
+  position: relative;
+}
+
+.section-label {
+  font-size: 13px;
+  color: #888;
+  font-weight: 500;
+  flex: 1;
+}
+
+/* Todo row */
+.todo-row {
+  display: flex;
+  align-items: flex-start;
+  padding: 12px 16px;
+  border-bottom: 1px solid #f0f0f0;
+  background: #fff;
+  position: relative;
+  transition: background 0.1s;
+}
+
+.todo-row:hover {
+  background: #fafafa;
+}
+
+.todo-row.done .todo-text {
+  text-decoration: line-through;
+  color: #bbb;
+}
+
+/* Drag handle */
+.drag-handle {
+  color: #ccc;
+  font-size: 14px;
+  cursor: grab;
+  padding: 2px 8px 2px 0;
+  user-select: none;
+  flex-shrink: 0;
+  letter-spacing: -2px;
+  line-height: 1;
+  margin-top: 2px;
+}
+
+.drag-handle:active {
+  cursor: grabbing;
+}
+
+/* Checkbox */
+.check-btn {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: 2px solid #ccc;
+  background: #fff;
+  cursor: pointer;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  color: #e91e8c;
+  margin-right: 12px;
+  margin-top: 1px;
+  transition: border-color 0.15s;
+}
+
+.check-btn.checked {
+  border-color: #e91e8c;
+  background: #fce4f3;
+}
+
+.check-btn:hover {
+  border-color: #e91e8c;
+}
+
+/* Todo content */
+.todo-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.todo-text {
+  font-size: 15px;
+  color: #333;
+  line-height: 1.4;
+  word-break: break-word;
+  cursor: default;
+}
+
+.due-date {
+  display: block;
+  font-size: 12px;
+  color: #2196f3;
+  margin-top: 2px;
+}
+
+.due-date.overdue {
+  color: #e91e8c;
+}
+
+/* Delete button */
+.delete-btn {
+  background: none;
+  border: none;
+  color: #ccc;
+  font-size: 18px;
+  cursor: pointer;
+  padding: 0 4px;
+  line-height: 1;
+  flex-shrink: 0;
+  align-self: center;
+  transition: color 0.1s;
+}
+
+.delete-btn:hover {
+  color: #e91e8c;
+}
+
+/* Inline edit */
+.inline-edit {
+  flex: 1;
+  font-size: 15px;
+  border: none;
+  border-bottom: 2px solid #e91e8c;
+  outline: none;
+  padding: 0 2px;
+  background: transparent;
+  width: 100%;
+}
+
+/* FAB */
+.fab-area {
+  position: fixed;
+  bottom: 24px;
+  right: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  z-index: 100;
+}
+
+.fab {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: #e91e8c;
+  color: #fff;
+  font-size: 28px;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(233,30,140,0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+
+.fab:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 16px rgba(233,30,140,0.5);
+}
+
+.fab-secondary {
+  background: #fff;
+  color: #e91e8c;
+  border: 2px solid #e91e8c;
+  border-radius: 20px;
+  padding: 8px 16px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  transition: background 0.15s;
+}
+
+.fab-secondary:hover {
+  background: #fce4f3;
+}
+
+/* Add form overlay */
+.add-form-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.3);
+  z-index: 200;
+  display: flex;
+  align-items: flex-end;
+}
+
+.add-form {
+  background: #fff;
+  width: 100%;
+  max-width: 480px;
+  margin: 0 auto;
+  border-radius: 16px 16px 0 0;
+  padding: 24px 20px 40px;
+  box-shadow: 0 -4px 20px rgba(0,0,0,0.15);
+}
+
+.add-form-title {
+  font-size: 13px;
+  color: #888;
+  margin-bottom: 12px;
+  font-weight: 500;
+}
+
+.add-input {
+  width: 100%;
+  font-size: 16px;
+  border: none;
+  border-bottom: 2px solid #e91e8c;
+  padding: 8px 0;
+  outline: none;
+  margin-bottom: 12px;
+  background: transparent;
+}
+
+.date-input {
+  color: #555;
+  font-size: 14px;
+}
+
+.add-form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.btn-cancel {
+  background: none;
+  border: none;
+  color: #888;
+  font-size: 15px;
+  cursor: pointer;
+  padding: 8px 12px;
+  border-radius: 8px;
+}
+
+.btn-cancel:hover {
+  background: #f5f5f5;
+}
+
+.btn-add {
+  background: #e91e8c;
+  color: #fff;
+  border: none;
+  padding: 8px 20px;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.15s;
+}
+
+.btn-add:hover {
+  opacity: 0.85;
+}
+
+/* Drag overlay */
+.drag-overlay {
+  background: #fff;
+  border-radius: 8px;
+  padding: 12px 16px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+  font-size: 15px;
+}
+
+.drag-overlay.section {
+  background: #fafafa;
+}
