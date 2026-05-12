@@ -1,5 +1,5 @@
 1. 最新の `main` ブランチをpullし、新しいブランチを作成
-   - 名前は「issues/#[issues number]」
+   - ブランチ名は「issues/#[issues number]」
 2. コミット
    - コミット文は「#[issues number] [差分から端的に変更点を記載]」
 3. PRの作成
